@@ -9,14 +9,16 @@
   "type": "module",
   "private": false,
   "keywords": [
-    "p5js",
-    "typescript",
+    "p5js-library",
+    "typescript-library",
     "globalThis",
     "template",
     "example",
     "types",
-    "library",
-    "bounce"
+    "module",
+    "bounce",
+    "mts",
+    "mjs"
   ],
   "scripts": {
     "compile": "compile",
