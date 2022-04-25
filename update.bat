@@ -1,1 +1,1 @@
-npm -g up || pause
+npm -g up & npm up && install-lib-types || pause
