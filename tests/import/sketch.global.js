@@ -1,5 +1,5 @@
 /**
- * Bouncing Colorful Balls [Global Mode] (v2.1.0)
+ * Bouncing Colorful Balls [Global Mode] (v2.1.1)
  * AllOneString & GoToLoop (2016-Jun-28)
  *
  * Discourse.Processing.org/t/make-class-get-all-functions-of-p5-js/12558/2
@@ -12,13 +12,9 @@
 'use strict';
 
 (async () => {
-  const {
-    default: Ball,
-    exposeBallConstructors
-  } = await import("../../dist/ball.mjs");
+  const { exposeBallConstructors } = await import("../../dist/ball.mjs");
 
-  globalThis.Ball = Ball;
-  exposeBallConstructors();
+  exposeBallConstructors(); // class Ball & method p5::createBall()
 
   globalThis.setup = setup;
   globalThis.draw  = draw;

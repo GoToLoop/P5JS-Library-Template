@@ -1,5 +1,5 @@
 /**
- * Bouncing Colorful Balls [Instance Mode] (v2.1.0)
+ * Bouncing Colorful Balls [Instance Mode] (v2.1.1)
  * AllOneString & GoToLoop (2016-Jun-28)
  *
  * Discourse.Processing.org/t/make-class-get-all-functions-of-p5-js/12558/2
@@ -9,11 +9,11 @@
  * CodePen.io/GoSubRoutine/pen/KaerGb/right/?editors=101
 */
 
-import Ball, { exposeBallConstructors } from "../../dist/ball.mjs";
+import Ball, { attachBallConstructorAsP5Method } from "../../dist/ball.mjs";
 
-exposeBallConstructors();
+attachBallConstructorAsP5Method(); // method p5::createBall()
 
-new p5(p => {
+function sketch(p) {
   const NUM = 15, balls = Array(NUM).fill();
   var bg;
 
@@ -36,4 +36,6 @@ new p5(p => {
     for (var i = 0; i < 3; bg.levels[i++] = ~~p.random(0xd0, 0o400));
     for (const b of balls)  b.reset();
   }
-});
+};
+
+new p5(sketch);

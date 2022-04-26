@@ -1,8 +1,9 @@
 /**
- * P5js Library Template (v1.0.0)
+ * P5js Library Template (v1.0.1)
  * GoToLoop (2022-Apr-08)
  *
- * https://Discourse.Processing.org/t/g4js-developing-a-new-gui-library-for-p5-js/36116/8
+ * https://Discourse.Processing.org/t/
+ * g4js-developing-a-new-gui-library-for-p5-js/36116/8
  *
  * https://GitHub.com/GoToLoop/P5JS-Library-Template
  * https://GoToLoop.GitHub.io/P5JS-Library-Template
@@ -47,11 +48,14 @@ export default class Ball {
 function createBall() {
     return new Ball(this);
 }
-export function exposeBallConstructors() {
-    globalThis.Ball = Ball;
+export function attachBallConstructorAsP5Method() {
     if (typeof globalThis.p5 == 'function')
         return !!(globalThis.p5.prototype.createBall = createBall);
     return false;
 }
-import checkAttrInScript from "./attribute.mjs";
-checkAttrInScript('ballAutoImport') && exposeBallConstructors(); // data-ball-auto-import
+export function exposeBallConstructors() {
+    globalThis.Ball = Ball; // global class Ball
+    return attachBallConstructorAsP5Method(); // p5::createBall()
+}
+import checkAttrInScript from "./attribute.mjs"; // data-ball-auto-import
+checkAttrInScript('ballAutoImport') && exposeBallConstructors();

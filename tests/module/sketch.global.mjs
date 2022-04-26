@@ -1,5 +1,5 @@
 /**
- * Bouncing Colorful Balls [Global Mode] (v2.1.0)
+ * Bouncing Colorful Balls [Global Mode] (v2.1.1)
  * AllOneString & GoToLoop (2016-Jun-28)
  *
  * Discourse.Processing.org/t/make-class-get-all-functions-of-p5-js/12558/2
@@ -9,9 +9,9 @@
  * CodePen.io/GoSubRoutine/pen/KaerGb/right/?editors=101
 */
 
-import Ball, { exposeBallConstructors } from "../../dist/ball.mjs";
+import { exposeBallConstructors } from "../../dist/ball.mjs";
 
-exposeBallConstructors();
+exposeBallConstructors(); // class Ball & method p5::createBall()
 
 const NUM = 15, balls = Array(NUM).fill();
 var bg;
