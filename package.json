@@ -1,6 +1,6 @@
 {
   "name": "p5js-library-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sorta template to develop p5js library addons in TS",
   "author": "GoToLoop",
   "license": "Unlicense",
