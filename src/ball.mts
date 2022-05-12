@@ -1,5 +1,5 @@
 /**
- * P5js Library Template (v1.0.1)
+ * P5js Library Template (v1.0.2)
  * GoToLoop (2022-Apr-08)
  *
  * https://Discourse.Processing.org/t/
@@ -10,7 +10,11 @@
 */
 
 import type * as p5 from "p5";
-import {} from "p5/global";
+// import {} from "p5/global";
+
+declare module globalThis {
+  const p5: { instance: p5 } & Function;
+}
 
 export default class Ball {
   static readonly VEL = 2;
@@ -24,7 +28,7 @@ export default class Ball {
   rad = 0;
   c = null! as p5.Color;
 
-  constructor(public p: p5 = (globalThis.p5 as any)?.instance) {
+  constructor(public p = globalThis.p5?.instance) {
     this.pos = p.createVector();
     this.vel = p.createVector();
     this.reset();
