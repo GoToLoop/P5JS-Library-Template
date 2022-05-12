@@ -1,5 +1,5 @@
 /**
- * P5js Library Template (v1.0.2)
+ * P5js Library Template (v1.0.3)
  * GoToLoop (2022-Apr-08)
  *
  * https://Discourse.Processing.org/t/
@@ -12,8 +12,9 @@
 import type * as p5 from "p5";
 // import {} from "p5/global";
 
-declare module globalThis {
+declare namespace globalThis {
   const p5: { instance: p5 } & Function;
+  var Ball: Function
 }
 
 export default class Ball {
@@ -76,7 +77,7 @@ export function attachBallConstructorAsP5Method() { // p5::createBall()
 }
 
 export function exposeBallConstructors() {
-  (globalThis as any).Ball = Ball;          // global class Ball
+  globalThis.Ball = Ball; // global class Ball
   return attachBallConstructorAsP5Method(); // p5::createBall()
 }
 

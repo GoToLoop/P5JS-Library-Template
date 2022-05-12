@@ -1,5 +1,5 @@
 /**
- * P5js Library Template (v1.0.2)
+ * P5js Library Template (v1.0.3)
  * GoToLoop (2022-Apr-08)
  *
  * https://Discourse.Processing.org/t/
