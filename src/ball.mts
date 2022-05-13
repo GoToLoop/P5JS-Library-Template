@@ -12,9 +12,13 @@
 import type * as p5 from "p5";
 // import {} from "p5/global";
 
-declare namespace globalThis {
-  const p5: { instance: p5 } & Function;
-  var Ball: Function
+export declare namespace globalThis {
+  const p5: {
+    new(sketch?: () => void, node?: HTMLElement): p5;
+    instance: p5
+  }
+
+  var Ball: new() => Ball
 }
 
 export default class Ball {
