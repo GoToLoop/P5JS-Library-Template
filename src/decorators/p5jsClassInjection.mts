@@ -8,7 +8,7 @@ import { AUTO, CREATE, INIT, DescriptorsAllTrue } from "../base/globals.mjs";
 
 export default InjectToP5js;
 
-function InjectToP5js(isP5ParamLast: Class): void; // isP5ParamLast is truthy
+function InjectToP5js(c: Class): void; // isP5ParamLast is truthy
 
 function InjectToP5js(
   isP5ParamLast?: boolean, // defaults to falsy
