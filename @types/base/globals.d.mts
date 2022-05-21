@@ -1,0 +1,2 @@
+export declare const CREATE = "create", AUTO = "AutoExpose", INIT = "init", PRE = "pre", POST = "post", REMOVE = "remove", DescriptorsAllTrue: PropertyDescriptor;
+//# sourceMappingURL=globals.d.mts.map

@@ -5,13 +5,18 @@
     "moduleResolution": "node",
     "newLine": "LF",
     "outDir": "dist",
-    "declarationDir": "typings",
+    "declarationDir": "@types",
     "declaration": true,
+    "declarationMap": true,
+    "inlineSourceMap": false,
+    "importHelpers": false,
+    "noEmitHelpers": false,
     "listEmittedFiles": true,
+    "experimentalDecorators": true,
     "strict": true
   },
 
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "typings/**/*"],
 
   "compileOnSave": true
 }
