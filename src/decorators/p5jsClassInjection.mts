@@ -8,7 +8,7 @@ import { AUTO, CREATE, INIT, DescriptorsAllTrue } from "../base/globals.mjs";
 
 export default InjectToP5js;
 
-function InjectToP5js(c: Class): void; // isP5ParamLast is truthy
+function InjectToP5js(targetClass: Class): void; // isP5ParamLast is truthy
 
 function InjectToP5js(
   isP5ParamLast?: boolean, // defaults to falsy
@@ -39,6 +39,8 @@ function InjectToP5js(
         }
       ;
 
+    globalThis.p5?.prototype.registerMethod(INIT, applyInjections);
+
     function exposeClassGlobally() {
       name in globalThis || Object.defineProperty(globalThis, name, {
         value: c,
@@ -54,7 +56,5 @@ function InjectToP5js(
         ...DescriptorsAllTrue
       });
     }
-
-    globalThis.p5?.prototype.registerMethod(INIT, applyInjections);
   }
 }

@@ -16,6 +16,7 @@ function InjectToP5js(isP5ParamLast, createPrefix = CREATE, scriptTagAttrName = 
             function () {
                 return new c(this, ...arguments);
             };
+        globalThis.p5?.prototype.registerMethod(INIT, applyInjections);
         function exposeClassGlobally() {
             name in globalThis || Object.defineProperty(globalThis, name, {
                 value: c,
@@ -30,6 +31,5 @@ function InjectToP5js(isP5ParamLast, createPrefix = CREATE, scriptTagAttrName = 
                 ...DescriptorsAllTrue
             });
         }
-        globalThis.p5?.prototype.registerMethod(INIT, applyInjections);
     }
 }
