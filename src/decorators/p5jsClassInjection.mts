@@ -19,8 +19,8 @@ function InjectToP5js(
 function InjectToP5js(
   isP5ParamLast?: boolean | Class,
   createPrefix = CREATE,
-  scriptTagAttrName = AUTO) {
-
+  scriptTagAttrName = AUTO)
+{
   if (typeof isP5ParamLast == 'function')  InjectClassDecor(isP5ParamLast);
   else return InjectClassDecor; // @InjectToP5js()
 
@@ -41,18 +41,18 @@ function InjectToP5js(
 
     globalThis.p5?.prototype.registerMethod(INIT, applyInjections);
 
-    function exposeClassGlobally() {
-      name in globalThis || Object.defineProperty(globalThis, name, {
-        value: c,
-        ...DescriptorsAllTrue
-      });
-    }
-
     function applyInjections(this: p5) {
       if (isGlobalMode() || checkScriptsForAttr(attrib))  exposeClassGlobally();
 
       Object.defineProperty(this, instantiatorName, {
         value: instantiator,
+        ...DescriptorsAllTrue
+      });
+    }
+
+    function exposeClassGlobally() {
+      name in globalThis || Object.defineProperty(globalThis, name, {
+        value: c,
         ...DescriptorsAllTrue
       });
     }

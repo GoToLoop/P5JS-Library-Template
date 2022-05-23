@@ -1,4 +1,5 @@
-import type * as p5 from "p5"
+import * as p5 from "p5"
+import decorate from "../src/base/globals.mjs"
 
 type P5RegTypes = 'init' | 'pre' | 'post' | 'remove'
 
@@ -8,18 +9,21 @@ type Class<T = object> = {
 }
 
 declare global {
-  var p5: {
-    new (sketch?: (p: p5) => void, nodevt?: HTMLElement | string): p5
+  var
+    __decorate: typeof decorate,
 
-    VERSION: string
-    instance: p5
-    disableFriendlyErrors: typeof p5.prototype.disableFriendlyErrors
+    p5: {
+      new (sketch?: (p: p5) => void, nodevt?: HTMLElement | string): p5
 
-    prototype: p5 & {
-      registerMethod(register: P5RegTypes, callback: (this: p5) => void): void
-      registerPreloadMethod(name: PropertyKey, proto: object): void
+      VERSION: string
+      instance: p5
+      disableFriendlyErrors: typeof p5.prototype.disableFriendlyErrors
+
+      prototype: p5 & {
+        registerMethod(register: P5RegTypes, callback: (this: p5) => void): void
+        registerPreloadMethod(name: PropertyKey, proto: object): void
+      }
     }
-  }
 
   function preload(this: p5): void
   function setup(this: p5): void

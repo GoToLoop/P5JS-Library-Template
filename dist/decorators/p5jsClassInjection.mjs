@@ -17,17 +17,17 @@ function InjectToP5js(isP5ParamLast, createPrefix = CREATE, scriptTagAttrName = 
                 return new c(this, ...arguments);
             };
         globalThis.p5?.prototype.registerMethod(INIT, applyInjections);
-        function exposeClassGlobally() {
-            name in globalThis || Object.defineProperty(globalThis, name, {
-                value: c,
-                ...DescriptorsAllTrue
-            });
-        }
         function applyInjections() {
             if (isGlobalMode() || checkScriptsForAttr(attrib))
                 exposeClassGlobally();
             Object.defineProperty(this, instantiatorName, {
                 value: instantiator,
+                ...DescriptorsAllTrue
+            });
+        }
+        function exposeClassGlobally() {
+            name in globalThis || Object.defineProperty(globalThis, name, {
+                value: c,
                 ...DescriptorsAllTrue
             });
         }

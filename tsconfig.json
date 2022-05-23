@@ -10,7 +10,7 @@
     "declarationMap": true,
     "inlineSourceMap": false,
     "importHelpers": false,
-    "noEmitHelpers": false,
+    "noEmitHelpers": true,
     "listEmittedFiles": true,
     "experimentalDecorators": true,
     "strict": true
